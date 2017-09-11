@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+using MLVS_3._3_Module;
+
 using OpenCvSharp;
 using OpenCvSharp.CPlusPlus;
-
 
 using Accord;
 using Accord.MachineLearning;
@@ -24,5 +25,6 @@ namespace MLVS_3
         {
             InitializeComponent();
         }
+
     }
 }
