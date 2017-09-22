@@ -92,6 +92,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1_Main\Form1Control.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="2_Component\1_Interface\iCalculateOutput.cs" />
     <Compile Include="2_Component\1_Interface\iCamearControl.cs" />
     <Compile Include="2_Component\1_Interface\iDataProcessing.cs" />
@@ -139,9 +142,7 @@
   <ItemGroup>
     <None Include="1_Main\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="4_Function\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Accord.3.7.0\build\Accord.targets" Condition="Exists('packages\Accord.3.7.0\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

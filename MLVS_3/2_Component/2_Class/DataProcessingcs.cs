@@ -167,7 +167,7 @@ namespace MLVS_3._2_Component._2_Class
                 temp01 = imageToByteArray(bitmaps[0]);
                 temp01.ToList<byte>().ForEach(b => temp_1.Add(Convert.ToDouble(b)));
                 temp_2 = temp_1.ToArray<double>();
-
+                Property.testInputs = temp_2;
             }
             catch
             {

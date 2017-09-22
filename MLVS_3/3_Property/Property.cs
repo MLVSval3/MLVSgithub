@@ -28,6 +28,7 @@ namespace MLVS_3._3_Property
 
         //이미지를 데이터 처리한 다차원 배열
         static public double[][] inputs { get; set; }
+        static public double[] testInputs { get; set; }
         //판별 결과
         static public int[] outputs { get; set; }
 
