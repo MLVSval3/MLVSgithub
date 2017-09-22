@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-using MLVS_3._3_Module;
+using MLVS_3._3_Property;
 
 using OpenCvSharp;
 using OpenCvSharp.CPlusPlus;
@@ -21,9 +21,11 @@ namespace MLVS_3
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
+            
         }
 
     }
