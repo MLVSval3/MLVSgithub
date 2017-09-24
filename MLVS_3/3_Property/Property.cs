@@ -11,6 +11,9 @@ namespace MLVS_3._3_Property
 {
     static class Property
     {
+        //save버튼 활성화
+        static public bool saveButton =false;
+
         //open cv sharp - 이미지 데이터
         static public CvCapture m_cvCap { get; set; }
         static public IplImage _image { get; set; }
@@ -24,11 +27,15 @@ namespace MLVS_3._3_Property
         static public string trueDataPath = Directory.GetCurrentDirectory() + @"\true\true (";
         static public string falseDataPath = Directory.GetCurrentDirectory() + @"\false\false (";
         static public string testDataPath = Directory.GetCurrentDirectory() + @"\test\test (";
+
         #endregion
+
+        static public string [] DatFileNmae { get; set; }
 
         //이미지를 데이터 처리한 다차원 배열
         static public double[][] inputs { get; set; }
         static public double[] testInputs { get; set; }
+
         //판별 결과
         static public int[] outputs { get; set; }
 

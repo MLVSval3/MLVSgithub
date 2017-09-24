@@ -80,6 +80,10 @@
             this.OutputTextBox.Size = new System.Drawing.Size(100, 30);
             this.OutputTextBox.TabIndex = 1;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ImageBox
             // 
             this.ImageBox.Location = new System.Drawing.Point(370, 24);
@@ -272,16 +276,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(129, 30);
             this.textBox4.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 403);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 12);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "실행 속도";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

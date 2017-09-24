@@ -23,11 +23,11 @@ namespace MLVS_3._2_Component._2_Class
             {
                 if (knn.Decide(Property.testInputs) == 1)
                 {
-                    answer= "false";
+                    answer= "False";
                 }
                 else
                 {
-                    answer = "true";
+                    answer = "True";
                 }
             }
             catch

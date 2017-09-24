@@ -15,7 +15,7 @@ using MLVS_3._2_Component._1_Interface;
 
 namespace MLVS_3._2_Component._2_Class
 {
-    class DataProcessingcs : iDataProcessing
+    class DataProcessing : iDataProcessing
     {
         //이미지 to 바이트 배열로 변환 메서드
         public byte[] imageToByteArray(Bitmap bitmap)
@@ -180,7 +180,7 @@ namespace MLVS_3._2_Component._2_Class
         {
             int trueNumber=Property.Truedatanumber;
             int falseNumber = Property.FalseDataNumber;
-            int []outputs = { 0 };
+            int []outputs=new int[Property.AllofDatanumber];
 
             for (int i = 0; i < trueNumber; i++)
             {
