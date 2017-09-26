@@ -277,6 +277,13 @@
             this.textBox4.Size = new System.Drawing.Size(129, 30);
             this.textBox4.TabIndex = 21;
             // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 31;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -388,6 +395,7 @@
             this.Controls.Add(this.OutputTextBox);
             this.Controls.Add(this.CameraBox);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MLVS";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CameraBox)).EndInit();

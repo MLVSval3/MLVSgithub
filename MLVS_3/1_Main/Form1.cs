@@ -28,6 +28,7 @@ namespace MLVS_3
         MangeFile mangeFile = new MangeFile();
         CvCapture m_cvCap;
         IplImage _image;
+
         public Form1()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace MLVS_3
             mangeFile.CheckFolderExists(Property.TrueFolderPath);
             mangeFile.CheckFolderExists(Property.DatFileFolderPath);
 
+            //테스트 데이터 수 최신화
             TestDataNumBox.Text=Convert.ToString(mangeFile.NumberOfFile(Property.TestFolderPath));
 
             //학습 데이터 수
@@ -47,6 +49,7 @@ namespace MLVS_3
             Property.Truedatanumber= mangeFile.NumberOfFile(Property.TrueFolderPath);
             Property.AllofDatanumber = Property.FalseDataNumber + Property.Truedatanumber;
 
+            //데이터
             Property.inputs = new double[Property.AllofDatanumber][];
             Property.outputs = new int[Property.AllofDatanumber];
         }

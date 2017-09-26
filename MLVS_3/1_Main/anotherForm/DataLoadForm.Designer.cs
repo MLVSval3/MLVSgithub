@@ -72,6 +72,7 @@
             this.Controls.Add(this.LoadBox);
             this.Controls.Add(this.listBox1);
             this.Name = "DataLoadForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DataLoadForm";
             this.ResumeLayout(false);
 

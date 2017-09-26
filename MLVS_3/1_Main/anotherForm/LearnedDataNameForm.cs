@@ -13,6 +13,8 @@ using MLVS_3._2_Component._2_Class;
 
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 
 namespace MLVS_3._1_Main.anotherForm
@@ -23,6 +25,13 @@ namespace MLVS_3._1_Main.anotherForm
         {
             InitializeComponent();
         }
+
+        #region
+        private void LearnedDataText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion 기능없는 이벤트
 
         private void SaveTheName_Click(object sender, EventArgs e)
         {
@@ -60,5 +69,25 @@ namespace MLVS_3._1_Main.anotherForm
         {
             this.Close();
         }
+
+    
+        private void LearnedDataText_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar)) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LearnedDataText_Leave(object sender, System.EventArgs e)
+        {
+            Regex emailregex = new Regex(@"[a-zA-Z]");
+            Boolean ismatch = emailregex.IsMatch(LearnedDataText.Text);
+            if (!ismatch)
+            {
+                MessageBox.Show("영문자만 입력해 주세요.");
+            }
+        }
+
     }
 }

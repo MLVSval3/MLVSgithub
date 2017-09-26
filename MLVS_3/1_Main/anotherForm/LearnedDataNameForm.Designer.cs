@@ -50,6 +50,7 @@
             this.LearnedDataText.Name = "LearnedDataText";
             this.LearnedDataText.Size = new System.Drawing.Size(142, 30);
             this.LearnedDataText.TabIndex = 1;
+            this.LearnedDataText.TextChanged += new System.EventHandler(this.LearnedDataText_TextChanged);
             // 
             // SaveTheName
             // 
@@ -81,6 +82,7 @@
             this.Controls.Add(this.LearnedDataText);
             this.Controls.Add(this.label1);
             this.Name = "LearnedDataNameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LearnedDataNameForm";
             this.ResumeLayout(false);
             this.PerformLayout();
