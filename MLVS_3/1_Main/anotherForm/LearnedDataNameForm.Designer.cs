@@ -76,11 +76,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 152);
+            this.ClientSize = new System.Drawing.Size(253, 152);
             this.Controls.Add(this.CansleBox);
             this.Controls.Add(this.SaveTheName);
             this.Controls.Add(this.LearnedDataText);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LearnedDataNameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LearnedDataNameForm";

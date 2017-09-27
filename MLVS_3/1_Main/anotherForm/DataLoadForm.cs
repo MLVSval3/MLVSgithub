@@ -64,6 +64,7 @@ namespace MLVS_3._1_Main.anotherForm
                     LearnedData.Close();
                 }
             }
+            this.Close();
         }
 
         private void CansleBox_Click(object sender, EventArgs e)
@@ -74,6 +75,11 @@ namespace MLVS_3._1_Main.anotherForm
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selected = true;
+        }
+
+        private void RefreshBox_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }

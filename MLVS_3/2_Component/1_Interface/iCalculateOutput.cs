@@ -8,6 +8,6 @@ namespace MLVS_3._2_Component._1_Interface
 {
     interface iCalculateOutput
     {
-        string CalculateKNN();
+        string CalculateKNN(double[] data);
     }
 }

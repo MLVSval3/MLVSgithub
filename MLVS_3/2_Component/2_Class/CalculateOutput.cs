@@ -13,15 +13,16 @@ namespace MLVS_3._2_Component._2_Class
 {
     class CalculateOutput : iCalculateOutput
     {
-       public string CalculateKNN()
+       public string CalculateKNN(double [] data)
         {
             string answer = "";
             var knn = new KNearestNeighbors(k: 3);
+
             knn.Learn(Property.inputs, Property.outputs);
 
             try
             {
-                if (knn.Decide(Property.testInputs) == 1)
+                if (knn.Decide(data) == 1)
                 {
                     answer= "False";
                 }

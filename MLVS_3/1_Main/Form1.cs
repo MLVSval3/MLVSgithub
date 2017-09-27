@@ -49,10 +49,21 @@ namespace MLVS_3
             Property.Truedatanumber= mangeFile.NumberOfFile(Property.TrueFolderPath);
             Property.AllofDatanumber = Property.FalseDataNumber + Property.Truedatanumber;
 
+            Property.FalseDataHalf = mangeFile.Half(Property.FalseDataNumber);
+            Property.TrueDataHalf = mangeFile.Half(Property.Truedatanumber);
+
             //데이터
             Property.inputs = new double[Property.AllofDatanumber][];
             Property.outputs = new int[Property.AllofDatanumber];
+    
         }
+        //기능없는 이벤트
+        #region
+        private void OutputTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -84,7 +95,6 @@ namespace MLVS_3
         private void LearnBox_Click(object sender, EventArgs e)
         {
             DataProcessing process = new DataProcessing();
-
             try
             {
                 Parallel.Invoke
@@ -92,25 +102,27 @@ namespace MLVS_3
                //true data data shiping*
                () =>
                {
-                    //true 데이터 분할 1
-                    process.DataLoop("True", true);
+                   //true 데이터 분할 1
+                   process.DataLoop("True", true);
                },
+
                () =>
                {
-                    //true 데이터 분할2
-                    process.DataLoop("True", false);
+                   //true 데이터 분할2
+                   process.DataLoop("True", false);
                },
 
                //false data data shiping*
                () =>
                {
-                    //false 데이터 분할1
-                    process.DataLoop("false", true);
+                   //false 데이터 분할1
+                   process.DataLoop("False", true);
                },
+
                () =>
                {
-                    //false 데이터 분할2
-                    process.DataLoop("false", false);
+                   //false 데이터 분할2
+                   process.DataLoop("False", false);
                }
 
             );
@@ -137,7 +149,6 @@ namespace MLVS_3
         {
             DataLoadForm loadForm = new DataLoadForm();
             loadForm.Show();
-
         }
 
 
@@ -243,17 +254,22 @@ namespace MLVS_3
         private void ForwardBox_Click(object sender, EventArgs e)
         {
             TestDataNumBox.Text = Convert.ToString(mangeFile.NumberOfFile(Property.TestFolderPath));
+            DataProcessing DataShipping = new DataProcessing();
+            CalculateOutput calculate = new CalculateOutput();
 
-            int maxNum = mangeFile.NumberOfFile(Property.TestFolderPath);
-
-            MessageBox.Show(Convert.ToString("input : "+Property.inputs.Length)+" output : "+ Property.outputs.Length);
             if (OutputTextBox.Text == "")
+            {                   
+                OutputTextBox.Text = "1." + calculate.CalculateKNN(DataShipping.TestDataShipping(1));
+            }
+            else if(OutputTextBox.Text.Contains("True")) //true.
             {
-                DataProcessing DataShipping = new DataProcessing();
-                CalculateOutput calculate = new CalculateOutput();
-
-                DataShipping.TestDataShipping(1);
-                OutputTextBox.Text = "1." + calculate.CalculateKNN();
+                int RunNumber = int.Parse(OutputTextBox.Text.Substring(0, OutputTextBox.Text.Length-5));
+                OutputTextBox.Text = Convert.ToString(RunNumber+1) +"."+ calculate.CalculateKNN(DataShipping.TestDataShipping(RunNumber+1));
+            }
+            else //false.
+            {
+                int RunNumber = int.Parse(OutputTextBox.Text.Substring(0, OutputTextBox.Text.Length - 6));
+                OutputTextBox.Text = Convert.ToString(RunNumber + 1) + "." + calculate.CalculateKNN(DataShipping.TestDataShipping(RunNumber+1));
             }
         }
 
@@ -269,6 +285,10 @@ namespace MLVS_3
 
         }
 
-        
+        private void RefreshBox1_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+
     }
 }

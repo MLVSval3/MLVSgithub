@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CameraBox = new System.Windows.Forms.PictureBox();
             this.OutputTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ImageBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LearnDataSaveBox = new System.Windows.Forms.Button();
@@ -60,17 +58,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.CameraBox)).BeginInit();
+            this.ImageBox = new System.Windows.Forms.PictureBox();
+            this.CameraBox = new System.Windows.Forms.PictureBox();
+            this.RefreshBox1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CameraBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CameraBox
-            // 
-            this.CameraBox.Location = new System.Drawing.Point(12, 24);
-            this.CameraBox.Name = "CameraBox";
-            this.CameraBox.Size = new System.Drawing.Size(270, 184);
-            this.CameraBox.TabIndex = 0;
-            this.CameraBox.TabStop = false;
             // 
             // OutputTextBox
             // 
@@ -79,18 +72,11 @@
             this.OutputTextBox.Name = "OutputTextBox";
             this.OutputTextBox.Size = new System.Drawing.Size(100, 30);
             this.OutputTextBox.TabIndex = 1;
+            this.OutputTextBox.TextChanged += new System.EventHandler(this.OutputTextBox_TextChanged);
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // ImageBox
-            // 
-            this.ImageBox.Location = new System.Drawing.Point(370, 24);
-            this.ImageBox.Name = "ImageBox";
-            this.ImageBox.Size = new System.Drawing.Size(270, 184);
-            this.ImageBox.TabIndex = 2;
-            this.ImageBox.TabStop = false;
             // 
             // label1
             // 
@@ -359,11 +345,38 @@
             this.label10.TabIndex = 30;
             this.label10.Text = "MLVS_var3";
             // 
+            // ImageBox
+            // 
+            this.ImageBox.Location = new System.Drawing.Point(370, 24);
+            this.ImageBox.Name = "ImageBox";
+            this.ImageBox.Size = new System.Drawing.Size(270, 184);
+            this.ImageBox.TabIndex = 2;
+            this.ImageBox.TabStop = false;
+            // 
+            // CameraBox
+            // 
+            this.CameraBox.Location = new System.Drawing.Point(12, 24);
+            this.CameraBox.Name = "CameraBox";
+            this.CameraBox.Size = new System.Drawing.Size(270, 184);
+            this.CameraBox.TabIndex = 0;
+            this.CameraBox.TabStop = false;
+            // 
+            // RefreshBox1
+            // 
+            this.RefreshBox1.BackgroundImage = global::MLVS_3.Properties.Resources.KakaoTalk_20170927_141741557;
+            this.RefreshBox1.Location = new System.Drawing.Point(627, -2);
+            this.RefreshBox1.Name = "RefreshBox1";
+            this.RefreshBox1.Size = new System.Drawing.Size(25, 25);
+            this.RefreshBox1.TabIndex = 32;
+            this.RefreshBox1.UseVisualStyleBackColor = true;
+            this.RefreshBox1.Click += new System.EventHandler(this.RefreshBox1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 581);
+            this.Controls.Add(this.RefreshBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -394,12 +407,13 @@
             this.Controls.Add(this.ImageBox);
             this.Controls.Add(this.OutputTextBox);
             this.Controls.Add(this.CameraBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MLVS";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CameraBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CameraBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,6 +451,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button RefreshBox1;
     }
 }
 

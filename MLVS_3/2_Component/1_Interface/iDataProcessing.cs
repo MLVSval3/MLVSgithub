@@ -17,7 +17,7 @@ namespace MLVS_3._2_Component._1_Interface
         void DataLoop(string dataType, bool firstNumber);
 
         //테스트 이미지 한장 데이터 쉬핑
-        void TestDataShipping(int dataNumber);
+        double[] TestDataShipping(int dataNumber);
 
         //output 배열 레이블링
         void LabelOuput();

@@ -31,6 +31,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.LoadBox = new System.Windows.Forms.Button();
             this.CansleBox = new System.Windows.Forms.Button();
+            this.RefreshBox = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -63,14 +64,26 @@
             this.CansleBox.UseVisualStyleBackColor = true;
             this.CansleBox.Click += new System.EventHandler(this.CansleBox_Click);
             // 
+            // RefreshBox
+            // 
+            this.RefreshBox.BackgroundImage = global::MLVS_3.Properties.Resources.KakaoTalk_20170927_141741557;
+            this.RefreshBox.Location = new System.Drawing.Point(250, 3);
+            this.RefreshBox.Name = "RefreshBox";
+            this.RefreshBox.Size = new System.Drawing.Size(27, 26);
+            this.RefreshBox.TabIndex = 3;
+            this.RefreshBox.UseVisualStyleBackColor = true;
+            this.RefreshBox.Click += new System.EventHandler(this.RefreshBox_Click);
+            // 
             // DataLoadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 217);
+            this.Controls.Add(this.RefreshBox);
             this.Controls.Add(this.CansleBox);
             this.Controls.Add(this.LoadBox);
             this.Controls.Add(this.listBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DataLoadForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DataLoadForm";
@@ -83,5 +96,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button LoadBox;
         private System.Windows.Forms.Button CansleBox;
+        private System.Windows.Forms.Button RefreshBox;
     }
 }
