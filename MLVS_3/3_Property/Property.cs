@@ -13,6 +13,10 @@ namespace MLVS_3._3_Property
     {
         //save버튼 활성화
         static public bool saveButton =false;
+        //시리얼 데이터를 불러올 때
+        static public bool serialDataLoad = false;
+        //자동실행 활성화
+        static public bool autoRun = false;
 
         //open cv sharp - 이미지 데이터
         static public CvCapture m_cvCap { get; set; }
@@ -40,6 +44,7 @@ namespace MLVS_3._3_Property
         static public int[] outputs { get; set; }
 
         //학습 데이터의 수
+        static public int TestDataNumber { get; set; }
         static public int FalseDataNumber { get; set; }
         static public int Truedatanumber { get; set; }
         static public int AllofDatanumber { get; set; }
@@ -47,6 +52,13 @@ namespace MLVS_3._3_Property
         //멀티 스래딩을 위한 데이터수의 절반 나누기
         static public int FalseDataHalf { get; set; }
         static public int TrueDataHalf { get; set; }
+
+        //자동실행 시간 조절
+        static public int timer = 1000;
+
+
+
+
 
     }
 }

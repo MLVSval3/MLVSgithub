@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+using MLVS_3._1_Main;
 using MLVS_3._3_Property;
 using MLVS_3._2_Component._2_Class;
 
@@ -17,13 +18,18 @@ namespace MLVS_3._1_Main.anotherForm
 {
     public partial class DataLoadForm : Form
     {
+
         bool selected = false;
-        public DataLoadForm()
+        Form1 frm = new Form1();
+ 
+
+        public DataLoadForm(Form1 frm)
         {
             InitializeComponent();
+            this.frm = frm;
 
-            MangeFile mangefile = new MangeFile();
-            int indexNum = mangefile.NumberOfFile(Property.DatFileFolderPath);
+            MangeFile mangefile1 = new MangeFile();
+            int indexNum = mangefile1.NumberOfFile(Property.DatFileFolderPath);
 
             string[] DatFileNmae = new string[indexNum];
             Property.DatFileNmae = new string[indexNum];
@@ -50,19 +56,30 @@ namespace MLVS_3._1_Main.anotherForm
             {
                 int index = listBox1.SelectedIndex;
                 //MessageBox.Show(Convert.ToString(index));
-                MessageBox.Show(Property.DatFileNmae[index]);
+                //MessageBox.Show(Property.DatFileNmae[index]);
 
-                using (Stream LearnedData = new FileStream(@"dat\"+Property.DatFileNmae[index ]+".dat", FileMode.Open))
+                using (Stream LearnedData = new FileStream(@"dat\"+Property.DatFileNmae[index]+".dat", FileMode.Open))
                 {
                     // BinaryFormatter 클래스의 개체 생성
                     BinaryFormatter binFormatter = new BinaryFormatter();
                     // LearnedData 스트림에 연결된 파일에 저장된 개체를 불러오기
                     // Object 반환으로 인한 형변환
                     SerializableClass readData = binFormatter.Deserialize(LearnedData) as SerializableClass;
+                    Property.inputs =readData.SendInputs;
+                    Property.outputs =readData.SendOutputs;
 
                     // sendData 스트림 닫기
                     LearnedData.Close();
+
+                    Property.serialDataLoad = true;
+ 
                 }
+                frm.LearnDataSaveBox.Enabled = true;
+                frm.ForwardBox.Enabled = true;
+                frm.BackwardBox.Enabled = true;
+                frm.NumberBox.Enabled = true;
+                frm.AutoRunBox.Enabled = true;
+                frm.StopAutoRunBox.Enabled = true;
             }
             this.Close();
         }

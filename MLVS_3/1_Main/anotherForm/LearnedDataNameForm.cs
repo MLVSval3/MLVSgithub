@@ -26,12 +26,13 @@ namespace MLVS_3._1_Main.anotherForm
             InitializeComponent();
         }
 
+        //기능없는 이벤트
         #region
         private void LearnedDataText_TextChanged(object sender, EventArgs e)
         {
 
         }
-        #endregion 기능없는 이벤트
+        #endregion 
 
         private void SaveTheName_Click(object sender, EventArgs e)
         {
@@ -49,11 +50,12 @@ namespace MLVS_3._1_Main.anotherForm
                         binFormatter.Serialize(LearnData, sendData);
 
                         LearnData.Close();
+
                     }
                 }
                 else
                 {
-                    MessageBox.Show("이름을 입력하시오.");
+                    MessageBox.Show("파일의 이름을 입력하시오.");
                 }
                 this.Close();
             }        

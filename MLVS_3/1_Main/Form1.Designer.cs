@@ -48,8 +48,8 @@
             this.RunSpeedTextBox = new System.Windows.Forms.TextBox();
             this.BackwardBox = new System.Windows.Forms.Button();
             this.NumberBox = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TestDataNumberBox = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@
             this.ImageBox = new System.Windows.Forms.PictureBox();
             this.CameraBox = new System.Windows.Forms.PictureBox();
             this.RefreshBox1 = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CameraBox)).BeginInit();
             this.SuspendLayout();
@@ -90,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(368, 9);
+            this.label2.Location = new System.Drawing.Point(10, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 12);
             this.label2.TabIndex = 4;
@@ -104,6 +105,7 @@
             this.LearnDataSaveBox.Size = new System.Drawing.Size(74, 43);
             this.LearnDataSaveBox.TabIndex = 5;
             this.LearnDataSaveBox.Text = "Svae";
+            this.LearnDataSaveBox.UseCompatibleTextRendering = true;
             this.LearnDataSaveBox.UseVisualStyleBackColor = true;
             this.LearnDataSaveBox.Click += new System.EventHandler(this.LearnDataSaveBox_Click);
             // 
@@ -255,20 +257,22 @@
             this.NumberBox.UseVisualStyleBackColor = true;
             this.NumberBox.Click += new System.EventHandler(this.NumberBox_Click);
             // 
-            // textBox4
+            // TestDataNumberBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("굴림", 15F);
-            this.textBox4.Location = new System.Drawing.Point(441, 490);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(129, 30);
-            this.textBox4.TabIndex = 21;
+            this.TestDataNumberBox.Font = new System.Drawing.Font("굴림", 15F);
+            this.TestDataNumberBox.Location = new System.Drawing.Point(441, 490);
+            this.TestDataNumberBox.Name = "TestDataNumberBox";
+            this.TestDataNumberBox.Size = new System.Drawing.Size(129, 30);
+            this.TestDataNumberBox.TabIndex = 21;
+            this.TestDataNumberBox.TextChanged += new System.EventHandler(this.TestDataNumberBox_TextChanged);
             // 
-            // label3
+            // label
             // 
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 31;
+            this.label.Location = new System.Drawing.Point(370, 9);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(100, 14);
+            this.label.TabIndex = 31;
+            this.label.Text = "ImageBox";
             // 
             // label4
             // 
@@ -320,7 +324,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(368, 303);
+            this.label8.Location = new System.Drawing.Point(368, 313);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(174, 12);
             this.label8.TabIndex = 28;
@@ -329,7 +333,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 303);
+            this.label9.Location = new System.Drawing.Point(10, 313);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(201, 12);
             this.label9.TabIndex = 29;
@@ -371,6 +375,10 @@
             this.RefreshBox1.UseVisualStyleBackColor = true;
             this.RefreshBox1.Click += new System.EventHandler(this.RefreshBox1_Click);
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -385,8 +393,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.TestDataNumberBox);
             this.Controls.Add(this.NumberBox);
             this.Controls.Add(this.BackwardBox);
             this.Controls.Add(this.RunSpeedTextBox);
@@ -420,38 +428,39 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox OutputTextBox;
         public System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.PictureBox CameraBox;
         public System.Windows.Forms.PictureBox ImageBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button LearnDataSaveBox;
         private System.Windows.Forms.Button TrueFolderOpenBox;
         private System.Windows.Forms.Button FalseFolderOpenBox;
         private System.Windows.Forms.Button TestFolderOpenBox;
         private System.Windows.Forms.Button LearnDataLoadBox;
-        private System.Windows.Forms.Button StopAutoRunBox;
-        private System.Windows.Forms.Button AutoRunBox;
         private System.Windows.Forms.Button LearnBox;
         private System.Windows.Forms.Button SaveToTestBox;
         private System.Windows.Forms.Button SaveToFalseBox;
         private System.Windows.Forms.Button SaveToTrueBox;
-        private System.Windows.Forms.TextBox TestDataNumBox;
-        private System.Windows.Forms.TextBox RunSpeedTextBox;
-        private System.Windows.Forms.Button BackwardBox;
-        private System.Windows.Forms.Button NumberBox;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TestDataNumberBox;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button ForwardBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button RefreshBox1;
+        public System.Windows.Forms.Timer timer2;
+        protected System.Windows.Forms.TextBox TestDataNumBox;
+        protected internal System.Windows.Forms.Button BackwardBox;
+        protected internal System.Windows.Forms.TextBox OutputTextBox;
+        protected internal System.Windows.Forms.Button StopAutoRunBox;
+        protected internal System.Windows.Forms.Button AutoRunBox;
+        protected internal System.Windows.Forms.TextBox RunSpeedTextBox;
+        protected internal System.Windows.Forms.Button NumberBox;
+        protected internal System.Windows.Forms.Button ForwardBox;
+        protected internal System.Windows.Forms.Button LearnDataSaveBox;
     }
 }
 

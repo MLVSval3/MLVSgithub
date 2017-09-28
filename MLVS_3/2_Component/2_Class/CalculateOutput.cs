@@ -19,7 +19,7 @@ namespace MLVS_3._2_Component._2_Class
             var knn = new KNearestNeighbors(k: 3);
 
             knn.Learn(Property.inputs, Property.outputs);
-
+       
             try
             {
                 if (knn.Decide(data) == 1)
