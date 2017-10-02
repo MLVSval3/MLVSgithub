@@ -91,5 +91,9 @@ namespace MLVS_3._1_Main.anotherForm
             }
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

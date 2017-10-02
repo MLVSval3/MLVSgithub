@@ -23,7 +23,7 @@ using MLVS_3._2_Component._2_Class;
 
 namespace MLVS_3
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form                                                                                                                                                                            
     {
         MangeFile mangeFile = new MangeFile();
         CvCapture m_cvCap;
@@ -73,6 +73,10 @@ namespace MLVS_3
         #region
         private void OutputTextBox_TextChanged(object sender, EventArgs e) { }
         private void TestDataNumberBox_TextChanged(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         //Form1 로드
@@ -462,6 +466,6 @@ namespace MLVS_3
             this.Refresh();
         }
 
- 
+       
     }
 }
