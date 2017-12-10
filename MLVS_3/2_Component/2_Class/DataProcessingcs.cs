@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MLVS_3._3_Property;
 using System.Drawing;
 using System.IO;
 using OpenCvSharp;
-using OpenCvSharp.Extensions;
 using OpenCvSharp.CPlusPlus;
 using System.Windows.Forms;
 
@@ -17,6 +14,7 @@ namespace MLVS_3._2_Component._2_Class
 {
     class DataProcessing : iDataProcessing
     {
+
         //이미지 to 바이트 배열로 변환 메서드
         public byte[] imageToByteArray(Bitmap bitmap)
         {
@@ -31,11 +29,13 @@ namespace MLVS_3._2_Component._2_Class
         //데이터 시핑
         public void DataLoop(string dataType, bool firstNumber)
         {
+            // 임시변수
+          
             int firstDataNumber = 0;
             int dataNumber = 0;
             int trueData = 0;
             int AlldataNumber = AlldataNumber = Property.Truedatanumber + Property.FalseDataNumber; ;
-            double[][] input = Property.inputs;
+            double[][] input = new double[AlldataNumber][];
 
             string Path = "";
 
@@ -103,17 +103,20 @@ namespace MLVS_3._2_Component._2_Class
                     #endregion
             }
 
+
             for (int i = firstDataNumber; i < dataNumber; i++)
             {
                 #region
                 try
                 {
-                    Mat mat_cat = Cv2.ImRead(Path + (i + 1) + ").bmp", LoadMode.Color);
                     Bitmap[] bitmaps = new Bitmap[dataNumber];
                     List<double> temp_1 = new List<double>();
                     double[] temp_2;
                     byte[] temp01;
+                    Mat mat_cat;
 
+                    mat_cat = Cv2.ImRead(Path + (i + 1) + ").bmp", LoadMode.Color);
+                            
                     OpenCvSharp.CPlusPlus.Size size = new OpenCvSharp.CPlusPlus.Size(32, 32);
                     mat_cat = mat_cat.Resize(size, 0, 0, Interpolation.Linear);
                     bitmaps[i] = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat_cat);
@@ -124,13 +127,18 @@ namespace MLVS_3._2_Component._2_Class
 
                     input[i + trueData] = temp_2;
 
+                    // 메모리 해제
+                    mat_cat.Dispose();
+                    temp01 = null;
+                    temp_2 = null;
+                    bitmaps.Initialize();
+                    temp_1.Clear();
+
                     if (i == dataNumber - 1)
                     {
                         Property.inputs = input;
-                    }
-                    
-                     
-     
+                        input = null;
+                    }           
                 }
                 #endregion
 
@@ -163,7 +171,7 @@ namespace MLVS_3._2_Component._2_Class
         {
             try
             { 
-                Mat mat_cat = Cv2.ImRead(Property.testDataPath + Convert.ToSingle(dataNumber) + ").bmp", LoadMode.Color);
+                Mat mat_cat = Cv2.ImRead(Property.testDataPath + Convert.ToString(dataNumber) + ").bmp", LoadMode.Color);
                 Bitmap []bitmaps = new Bitmap[1];
                 List<double> temp_1 = new List<double>();
                 double[] temp_2;
@@ -180,7 +188,7 @@ namespace MLVS_3._2_Component._2_Class
             }
             catch
             {
-                MessageBox.Show("picture 폴더 test (" + Convert.ToSingle(dataNumber) + ") 포멧 확인");
+                MessageBox.Show("picture 폴더 test (" + Convert.ToString(dataNumber) + ") 포멧 확인");
                 double[] temp_2 = null;
                 return temp_2;
             }

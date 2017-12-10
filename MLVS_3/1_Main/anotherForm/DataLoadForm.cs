@@ -78,9 +78,34 @@ namespace MLVS_3._1_Main.anotherForm
                 frm.ForwardBox.Enabled = true;
                 frm.BackwardBox.Enabled = true;
                 frm.NumberBox.Enabled = true;
-                frm.AutoRunBox.Enabled = true;
-                frm.StopAutoRunBox.Enabled = true;
+
+                frm.RL_BackwardBox.Enabled = true;
+                frm.RL_ForwardBox.Enabled = true; 
+                frm.RL_RunNumberBox.Enabled = true;
+                frm.RL_LearnDataSaveBox.Enabled = true;
             }
+
+            if (Property.KNNBox == false && Property.LosisticBox == true)
+            {
+                Property.logistic = new Logistic();
+                Property.logistic.CalculateLogistic(Property.inputs, Property.outputs);
+                if (Property.CameraConected == true)
+                {
+                    frm.RL_AotoRunBox.Enabled = true;
+                    frm.RL_StopAotoRunBox.Enabled = true;
+                }
+            }
+            else if (Property.KNNBox == true && Property.LosisticBox == false)
+            {
+                if (Property.CameraConected == true)
+                {
+                    frm.AutoRunBox.Enabled = true;
+                    frm.StopAutoRunBox.Enabled = true;
+                }
+            }
+            Property.KNNBox = false;
+            Property.LosisticBox = false;
+
             this.Close();
         }
 

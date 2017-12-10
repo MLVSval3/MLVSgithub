@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -106,9 +107,7 @@
     <Compile Include="2_Component\1_Interface\iLoadData.cs" />
     <Compile Include="2_Component\2_Class\CalculateOutput.cs" />
     <Compile Include="2_Component\2_Class\DataProcessingcs.cs" />
-    <Compile Include="2_Component\2_Class\LoadData.cs" />
     <Compile Include="2_Component\2_Class\MangeFile.cs" />
-    <Compile Include="2_Component\2_Class\PictureDataManaging.cs" />
     <Compile Include="1_Main\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +115,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="1_Main\Program.cs" />
+    <Compile Include="2_Component\2_Class\Logistic.cs" />
     <Compile Include="2_Component\2_Class\SerializableClass.cs" />
     <Compile Include="3_Property\Property.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,9 +164,7 @@
   <ItemGroup>
     <None Include="Resources\KakaoTalk_20170927_141741557.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="1_Main\FormTab2\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Accord.3.7.0\build\Accord.targets" Condition="Exists('packages\Accord.3.7.0\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using OpenCvSharp;
 using System.IO;
+using MLVS_3._2_Component._2_Class;
+
 
 
 namespace MLVS_3._3_Property
@@ -15,8 +13,17 @@ namespace MLVS_3._3_Property
         static public bool saveButton =false;
         //시리얼 데이터를 불러올 때
         static public bool serialDataLoad = false;
+
+
+        //카메라 연결 확인
+        static public bool CameraConected = false;
+
         //자동실행 활성화
         static public bool autoRun = false;
+        static public bool LautoRun = false;
+
+        static public bool KNNBox = false;
+        static public bool LosisticBox = false;
 
         //open cv sharp - 이미지 데이터
         static public CvCapture m_cvCap { get; set; }
@@ -56,9 +63,6 @@ namespace MLVS_3._3_Property
         //자동실행 시간 조절
         static public int timer = 1000;
 
-
-
-
-
+        static public Logistic logistic { get; set; }
     }
 }
